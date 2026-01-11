@@ -36,11 +36,12 @@
     <h3>Вариант</h3>
     <div id="variants-ru" class="variant-group active">
         <button class="variant-btn active" onclick="setVariant('ru')">РусЛат</button>
-        <button class="variant-btn" onclick="setVariant('ru2')">ГОСТ 7.79-2000 A (ISO 9)</button>
-		<button class="variant-btn" onclick="setVariant('ru3')">ГОСТ 7.79-2000 Б (ISO 9)</button>
+        <button class="variant-btn" onclick="setVariant('ru2')">ГОСТ 7.79 A (ISO 9)</button>
+		<button class="variant-btn" onclick="setVariant('ru3')">ГОСТ 7.79 Б (ISO 9)</button>
 		<button class="variant-btn" onclick="setVariant('ruyak1')">Яковлев (Без диакритики)</button>
 		<button class="variant-btn" onclick="setVariant('ruyak2')">Яковлев (Типографский)</button>
 		<button class="variant-btn" onclick="setVariant('ruyak3')">Яковлев (Яналиф)</button>
+		<button class="variant-btn" onclick="setVariant('rusov')">Ларин</button>
 		<button class="variant-btn" onclick="setVariant('rubel')">Белинский</button>
 		<button class="variant-btn" onclick="setVariant('rukod')">Кодинский</button>
     </div>
@@ -48,23 +49,23 @@
         <button class="variant-btn active" onclick="setVariant('ua')">Иречек</button>
 		<button class="variant-btn active" onclick="setVariant('ua2')">Абэцадло (Лозинский)</button>
 		<button class="variant-btn active" onclick="setVariant('ua3')">ALA-LC</button>
-		<button class="variant-btn active" onclick="setVariant('ua4')">Научный ISO 9 (1968)</button>
+		<button class="variant-btn active" onclick="setVariant('ua4')">Научный ISO 9</button>
     </div>
     <div id="variants-by" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('by')">Латинка</button>
 		<button class="variant-btn active" onclick="setVariant('bypol')">Польский алфавит</button>
 		<button class="variant-btn active" onclick="setVariant('by2')">ALA-LC</button>
-		<button class="variant-btn active" onclick="setVariant('by3')">ISO 9 (1995)</button>
+		<button class="variant-btn active" onclick="setVariant('by3')">ISO 9</button>
     </div>
     <div id="variants-bu" class="variant-group">
-        <button class="variant-btn active" onclick="setVariant('bu')">Научный ISO 9 (1968)</button>
-		<button class="variant-btn active" onclick="setVariant('bu2')">ISO 9 (1995)</button>
+        <button class="variant-btn active" onclick="setVariant('bu')">Научный</button>
+		<button class="variant-btn active" onclick="setVariant('bu2')">ISO 9</button>
 		<button class="variant-btn active" onclick="setVariant('bu3')">ALA/LC</button>
 		<button class="variant-btn active" onclick="setVariant('bu4')">Данчев</button>
     </div>
     <div id="variants-mac" class="variant-group">
-        <button class="variant-btn active" onclick="setVariant('mac')">ALA-LC, BGN/PCGN (2013), Национальная академия (1970)</button>
-		<button class="variant-btn active" onclick="setVariant('mac3')">ISO 9 (1995)</button>
+        <button class="variant-btn active" onclick="setVariant('mac')">ALA-LC, BGN/PCGN, Национальная академия</button>
+		<button class="variant-btn active" onclick="setVariant('mac3')">ISO 9</button>
 		<button class="variant-btn active" onclick="setVariant('mac2')">Гаевица</button>
     </div>
 </div>
@@ -448,6 +449,34 @@
 			
 		},
 		
+		rusov: {
+            "а": "a", "э": "æ", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "â", "е": "e", "ё": "ô", "ю": "û", 
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "c",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "h",
+			"ш": "š", 															
+			"ч": "č",															    
+			"ж": "ž", 															      
+			"щ": "ß",
+			"ь": "’", "ъ": "’",
+			"й": "j"
+		},
+		
 		rukod: {
 		
 			"цц": "ц",
@@ -503,8 +532,8 @@
 			"Фя": "Fea", "Фе": "Fe", "Фё": "Fé", "Фю": "Fü",
 
 			"г": "g",               
-			"гя": "ghea", "ге": "ghe", "ги": "ghi", "гё": "ghé", "гю": "ghü", "гий": "ghy", 
-			"Гя": "Ghea", "Ге": "Ghe", "Ги": "Ghi", "Гё": "Ghé", "Гю": "Ghü", "Гий": "Ghy", 
+			"гя": "ghea", "ге": "ghe", "ги": "ghi", "гий": "ghy", "гё": "ghé", "гю": "ghü", "гий": "ghy", 
+			"Гя": "Ghea", "Ге": "Ghe", "Ги": "Ghi", "Гий": "Ghy", "Гё": "Ghé", "Гю": "Ghü", "Гий": "Ghy", 
 			"гья": "ghia", "гье": "ghie", "гьи": "ghii", "гьё": "ghié", "гью": "ghiu", 
 			"Гья": "Ghia", "Гье": "Ghie", "Гьи": "Ghii", "Гьё": "Ghié", "Гью": "Ghiu", 
 			"гьа": "ghia", "гьо": "ghio", "гьу": "ghiu", 
@@ -518,6 +547,7 @@
 
 			"к": "c",
 			"кя": "chea", "ке": "che", "ки": "chi", "кё": "ché", "кю": "chü", "кий": "chy",
+			"Кя": "Chea", "Ке": "Che", "Ки": "Chi", "Кё": "Ché", "Кю": "Chü", "Кий": "Chy",
 			"кья": "chia", "кье": "chie", "кьи": "chii", "кьё": "chié", "кью": "chiu",
 			"кьа": "chia", "кьо": "chio", "кьу": "chiu",
 			"ц": "cz",
@@ -528,23 +558,23 @@
 			"ч": "ch", "чь": "ch",                
 			"ча": "cea", "чо": "cho", "чу": "chu",
 			"Ча": "Cea", "Чо": "Cho", "Чу": "Chu",
-			"чя": "cea", "чи": "ci", "че": "ce", "чё": "cé", "чю": "cü", 
-			"Чя": "Сea", "Чи": "Ci", "Че": "Сe", "Чё": "Сé", "Чю": "Сü", 
-			"щ": "ch", "щь": "ch",                
+			"чя": "cea", "чи": "ci", "чий": "cy", "че": "ce", "чё": "cé", "чю": "cü", 
+			"Чя": "Сea", "Чи": "Ci", "Чий": "Cy", "Че": "Сe", "Чё": "Сé", "Чю": "Сü", 
+			"щ": "sch", "щь": "sch",                
 			"ща": "scea", "що": "scho", "щу": "schu",
 			"Ща": "Scea", "Що": "Scho", "Щу": "Schu",
-			"щя": "scea", "щи": "sci", "ще": "sce", "щё": "scé", "щю": "schu", 
-			"Щя": "Scea", "Щи": "Sci", "Ще": "Sce", "Щё": "Scé", "Щю": "Schu", 
+			"щя": "scea", "щи": "sci", "щий": "scy", "ще": "sce", "щё": "scé", "щю": "schu", 
+			"Щя": "Scea", "Щи": "Sci", "Щий": "Scy", "Ще": "Sce", "Щё": "Scé", "Щю": "Schu", 
 			"ж": "gh", "жь": "gh",
 			"жа": "gea", "жо": "gho", "жу": "ghu",
 			"Жа": "Gea", "Жо": "Gho", "Жу": "Ghu",
-			"жя": "gea", "жи": "gi", "жы": "gi", "же": "ge", "жё": "gé", "жю": "gü",
-			"Жя": "Gea", "Жи": "Gi", "Жы": "Gi", "Же": "Ge", "Жё": "Gé", "Жю": "Gü",
+			"жя": "gea", "жи": "gi", "жий": "gy", "жы": "gi", "же": "ge", "жё": "gé", "жю": "gü",
+			"Жя": "Gea", "Жи": "Gi", "Жий": "Gy", "Жы": "Gi", "Же": "Ge", "Жё": "Gé", "Жю": "Gü",
 			"ш": "хh", "шь": "хh",
 			"ша": "хea", "шо": "хhо", "шу": "хhu",
 			"Ша": "Хea", "Шо": "Хhо", "Шу": "Хhu",
-			"шя": "хea", "ши": "хi", "шы": "хi", "ше": "хe", "шё": "хé", "шю": "хü",
-			"Шя": "Хea", "Ши": "Xi", "Шы": "Xi", "Ше": "Хe", "Шё": "Хé", "Шю": "Хü",
+			"шя": "хea", "ши": "хi", "ший": "хy", "шы": "хi", "ше": "хe", "шё": "хé", "шю": "хü",
+			"Шя": "Хea", "Ши": "Xi", "Ший": "Xy", "Шы": "Xi", "Ше": "Хe", "Шё": "Хé", "Шю": "Хü",
 
 			"лы": "lhi", "л": "ll", "ли": "li", "ль": "l", "лий": "ly", "ля": "la", "ле": "le", "лё": "lo", "лю": "lu",                //л
 			"Лы": "Lhi", "Ли": "Li", "Ля": "La", "Ль": "L", "Лий": "Ly", "Ле": "Le", "Лё": "Lo", "Лю": "Lu",
