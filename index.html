@@ -38,6 +38,9 @@
         <button class="variant-btn active" onclick="setVariant('ru')">РусЛат</button>
         <button class="variant-btn" onclick="setVariant('ru2')">ГОСТ 7.79 A (ISO 9)</button>
 		<button class="variant-btn" onclick="setVariant('ru3')">ГОСТ 7.79 Б (ISO 9)</button>
+		<button class="variant-btn" onclick="setVariant('ru4')">ALA-LC</button>
+		<button class="variant-btn" onclick="setVariant('ru5')">BGN/PCGN</button>
+		<button class="variant-btn" onclick="setVariant('ru6')">ICAO (Машиносчитаемые документы)</button>
 		<button class="variant-btn" onclick="setVariant('ruyak1')">Яковлев (Без диакритики)</button>
 		<button class="variant-btn" onclick="setVariant('ruyak2')">Яковлев (Типографский)</button>
 		<button class="variant-btn" onclick="setVariant('ruyak3')">Яковлев (Яналиф)</button>
@@ -49,18 +52,21 @@
         <button class="variant-btn active" onclick="setVariant('ua')">Иречек</button>
 		<button class="variant-btn active" onclick="setVariant('ua2')">Абэцадло (Лозинский)</button>
 		<button class="variant-btn active" onclick="setVariant('ua3')">ALA-LC</button>
-		<button class="variant-btn active" onclick="setVariant('ua4')">Научный ISO 9</button>
+		<button class="variant-btn active" onclick="setVariant('ua4')">Научный</button>
+		<button class="variant-btn active" onclick="setVariant('ua5')">BGN/PCGN</button>
     </div>
     <div id="variants-by" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('by')">Латинка</button>
 		<button class="variant-btn active" onclick="setVariant('bypol')">Польский алфавит</button>
 		<button class="variant-btn active" onclick="setVariant('by2')">ALA-LC</button>
 		<button class="variant-btn active" onclick="setVariant('by3')">ISO 9</button>
+		<button class="variant-btn active" onclick="setVariant('by4')">BGN/PCGN</button>
     </div>
     <div id="variants-bu" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('bu')">Научный</button>
 		<button class="variant-btn active" onclick="setVariant('bu2')">ISO 9</button>
 		<button class="variant-btn active" onclick="setVariant('bu3')">ALA/LC</button>
+		<button class="variant-btn active" onclick="setVariant('bu5')">Оффициальный, ООН; BGN/PCGN</button>
 		<button class="variant-btn active" onclick="setVariant('bu4')">Данчев</button>
     </div>
     <div id="variants-mac" class="variant-group">
@@ -198,7 +204,7 @@
 			"ь": "`", "ъ": "``",
 			"й": "j",
 			"і": "i", "ір": "i`r",
-			"ѣ": "i`", "ѳ": "fh", "ѵ": "yh", "ѵ": "yh"
+			"ѣ": "i`", "ѳ": "fh", "ѵ": "yh"
 			
 			
         },
@@ -230,9 +236,134 @@
 			"ь": "ʹ", "ъ": "ʺ",
 			"й": "j",
 			"і": "i", "ір": "i`r",
-			"ѣ": "i`", "ѳ": "fh", "ѵ": "yh", "ѵ": "yh"
+			"ѣ": "i`", "ѳ": "fh", "ѵ": "yh"
 			
 		},
+		
+		ru4: {
+            "а": "a", "э": "ė", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "i͡a", "е": "e", "ё": "ë", "ю": "i͡u", 
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "t͡s",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "kh",
+			"ш": "sh", 															
+			"ч": "ch",															    
+			"ж": "zh", 															      
+			"щ": "shch",
+			"ь": "ʹ", "ъ": "ʺ",
+			"й": "ĭ",
+			
+			"і": "ī",
+			"ѣ": "i͡e", "ѣ": "ě", "ѳ": "ḟ", "ѵ": "ẏ",
+			"є": "ē", "ѥ": "i͡e", "ѕ": "ż", "ꙋ": "ū", "ѿ": "ō͡t", "ѡ": "ō", "ѧ": "ę", "ѯ": "k͡s", "ѱ": "p͡s", "ѱ": "p͡s", "ѫ": "ǫ", "ѩ": "i͡ę", "ѭ": "i͡ǫ"
+			
+        },
+		
+		ru5: {
+            "а": "a", "э": "e", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "ya", "е": "ye", "ё": "yë", "ю": "yu", 
+			
+			"бэ": "b·e", "бе": "be", "бё": "bë", "б": "b", 
+			"вэ": "v·e", "ве": "ve", "вё": "vë", "в": "v",
+			"гэ": "g·e", "ге": "ge", "гё": "gë", "г": "g",
+			"дэ": "d·e", "де": "de", "дё": "dë", "д": "d",
+			"лэ": "l·e", "ле": "le", "лё": "lë", "л": "l",
+			"цэ": "ts·e", "це": "tse", "цё": "tsë", "ц": "ts",
+			"зэ": "z·e", "зе": "ze", "зё": "zë", "з": "z",
+			"кэ": "k·e", "ке": "ke", "кё": "kë", "к": "k",
+			"мэ": "m·e", "ме": "me", "мё": "më", "м": "m",
+			"нэ": "n·e", "не": "ne", "нё": "në", "н": "n",
+			"пэ": "p·e", "пе": "pe", "пё": "pë", "п": "p",
+			"рэ": "r·e", "ре": "re", "рё": "rë", "р": "r",
+			"сэ": "s·e", "се": "se", "сё": "së", "с": "s",
+			"тэ": "t·e", "те": "te", "тё": "të", "т": "t",
+			"фэ": "f·e", "фе": "fe", "фё": "fë", "ф": "f",
+			"хэ": "kh·e", "хе": "khe", "хё": "khë", "х": "kh",
+			"шэ": "sh·e", "ше": "she", "шё": "shë", "ш": "sh",
+			"чэ": "ch·e", "че": "che", "чё": "chë", "ч": "ch",
+			"жэ": "zh·e", "же": "zhe", "жё": "zhë", "ж": "zh",
+			"щэ": "shch·e", "ще": "shche", "щё": "shchë", "щ": "shch",
+			
+			"Бэ": "B·e", "Бе": "Be", "Бё": "Bë",
+			"Вэ": "V·e", "Ве": "Ve", "Вё": "Vë",
+			"Гэ": "G·e", "Ге": "Ge", "Гё": "Gë",
+			"Дэ": "D·e", "Де": "De", "Дё": "Dë",
+			"Лэ": "L·e", "Ле": "Le", "Лё": "Lë",
+			"Цэ": "Ts·e", "Це": "Tse", "Цё": "Tsë",
+			"Зэ": "Z·e", "Зе": "Ze", "Зё": "Zë",
+			"Кэ": "K·e", "Ке": "Ke", "Кё": "Kë",
+			"Мэ": "M·e", "Ме": "Me", "Мё": "Më",
+			"Нэ": "N·e", "Не": "Ne", "Нё": "Në",
+			"Пэ": "P·e", "Пе": "Pe", "Пё": "Pë",
+			"Рэ": "R·e", "Ре": "Re", "Рё": "Rë",
+			"Сэ": "S·e", "Се": "Se", "Сё": "Së",
+			"Тэ": "T·e", "Те": "Te", "Тё": "Të",
+			"Фэ": "F·e", "Фе": "Fe", "Фё": "Fë",
+			"Хэ": "Kh·e", "Хе": "Khe", "Хё": "Khë",
+			"Шэ": "Sh·e", "Ше": "She", "Шё": "Shë",
+			"Чэ": "Ch·e", "Че": "Che", "Чё": "Chë",
+			"Жэ": "Zh·e", "Же": "Zhe", "Жё": "Zhë",
+			"Щэ": "Shch·e", "Ще": "Shche", "Щё": "Shchë",
+			
+			"ь": "ʼ", "ъ": "ˮ",
+			"йа": "y·a", "йу": "y·u", "йы": "y·y", "йэ": "y·e", "й": "y",
+			"Йа": "Y·a", "Йу": "Y·u", "Йы": "Y·y", "Йэ": "Y·e",
+			"ыа": "y·a", "ыу": "y·u", "ыы": "y·y", "ыэ": "y·e", "й": "y",
+			"Ыа": "Y·a", "Ыу": "Y·u", "Ыы": "Y·y", "Ыэ": "Y·e",
+			
+			"аы": "а·ы", "эы": "э·ы", "оы": "о·ы", "уы": "у·ы",
+			"яы": "я·ы", "еы": "е·ы", "ёы": "ё·ы", "юы": "ю·ы",
+			"Аы": "А·ы", "Эы": "Э·ы", "Оы": "О·ы", "Уы": "У·ы",
+			"Яы": "Я·ы", "Еы": "Е·ы", "Ёы": "Ё·ы", "Юы": "Ю·ы",
+			
+			"шч": "ш·ч", "Шч": "Ш·ч",
+			"тс": "т·с", "Тс": "Т·с"
+			
+        },
+		
+		ru6: {
+            "а": "a", "э": "e", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "ia", "е": "e", "ё": "e", "ю": "iu", 
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "ts",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "kh",
+			"ш": "sh", 															
+			"ч": "ch",															    
+			"ж": "zh", 															      
+			"щ": "shch",
+			"ь": "", "ъ": "ie",
+			"й": "i"
+			
+			
+        },
 			
 		ruyak1: {
 
@@ -796,6 +927,37 @@
 			
         },
 		
+		
+		ua5: {
+            "а": "a", "е": "e", "і": "i", "о": "o", "у": "u", "и": "y",
+			"я": "ya", "є": "ye", "ї": "yi", "ю": "yu", 
+			
+			"б": "b", "бя": "bia", "бє": "bie", "бю": "biu",
+			"в": "v", "вя": "via", "вє": "vie", "вю": "viu",
+			"г": "h", "гя": "hia", "гє": "hie", "гю": "hiu",
+			"ґ": "g", "ґя": "gia", "ґє": "gie", "ґю": "giu",
+			"д": "d", "дя": "dia", "дє": "die", "дю": "diu",
+			"л": "l", "ля": "lia", "лє": "lie", "лю": "liu",
+			"ц": "ts", "ця": "tsia", "цє": "tsie", "цю": "tsiu",
+			"з": "z", "зя": "zia", "зє": "zie", "зю": "ziu",
+			"к": "k", "кя": "kia", "кє": "kie", "кю": "kiu",
+			"м": "m", "мя": "mia", "мє": "mie", "мю": "miu",
+			"н": "n", "ня": "nia", "нє": "nie", "ню": "niu",
+			"п": "p", "пя": "pia", "пє": "pie", "пю": "piu",
+			"р": "r", "ря": "ria", "рє": "rie", "рю": "riu",
+			"с": "s", "ся": "sia", "сє": "sie", "сю": "siu",
+			"т": "t", "тя": "tia", "тє": "tie", "тю": "tiu",
+			"ф": "f", "фя": "fia", "фє": "fie", "фю": "fiu",
+			"х": "kh", "хя": "khia", "хє": "khie", "хю": "khiu",
+			"ш": "sh", "шя": "shia", "шє": "shie", "шю": "shiu",
+			"ч": "ch", "чя": "chia", "чє": "chie", "чю": "chiu",
+			"ж": "zh", "жя": "zhia", "жє": "zhie", "жю": "zhiu",
+			"щ": "shch", "щя": "shchia", "щє": "shchie", "щю": "shchiu",
+			
+			"ь": "", "й": "y", "’": "", "'": ""
+			
+        },
+		
         by: {
 		
 		
@@ -1022,6 +1184,41 @@
 			
 			
         },
+		
+		by4: {
+            "а": "a", "э": "e", "і": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "ya", "е": "ye", "ё": "yo", "ю": "yu", 
+			
+			"б": "b", 
+			"в": "v",
+			"г": "h",
+			"ґ": "g",
+			"д": "d",
+			"л": "l",
+			"ц": "ts",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "kh",
+			"ш": "sh",
+			"ч": "ch",
+			"ж": "zh",
+			"щ": "shch",
+			
+			"ь": "'", "’": "’’", 
+			"й": "y", "ў": "w", 
+			
+			"зг": "з·г", "кг": "к·г", "сг": "с·г", "тс": "т·с", "цг": "ц·г",
+			"Зг": "З·г", "Кг": "К·г", "Сг": "С·г", "Тс": "Т·с", "Цг": "Ц·г"
+
+		},
+			
         bu: {
 
 			"ия": "ia",
@@ -1141,6 +1338,41 @@
 			
 	
         },
+		
+		
+		bu5: {
+			
+			"ия": "ia",
+			
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "ts",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "h",
+			"ш": "sh", 															      //Ш
+			"ч": "ch",															      //ч
+			"ж": "zh", 															       //ж
+			"щ": "sht",  											                    //щ
+            "я": "ya", "ю": "ya",                                                        //йотированные
+			"а": "a", "e": "e", "и": "i", "о": "o", "у": "u", "ъ": "a",
+			"ь": "y", "й": "y"                                                             //ээээ 
+			
+	
+        },
+		
+		
 		
         mac: {
 			
