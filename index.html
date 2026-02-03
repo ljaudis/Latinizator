@@ -7,8 +7,8 @@
         body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f9; display: flex; min-height: 100vh; }
         
         /* Боковая панель */
-        .sidebar { width: 200px; background: #fff; border-right: 1px solid #ccc; padding: 20px; flex-shrink: 0; }
-        .sidebar h3 { font-size: 14px; color: #666; text-transform: uppercase; margin-top: 0; }
+        .sidebar { width: 250px; background: #fff; border-right: 1px solid #ccc; padding: 20px; flex-shrink: 0; }
+        .sidebar h3 { font-size: 14px; color: #666; text-transform: uppercase; margin-top: 0; margin-bottom: 15px; }
         .variant-group { display: none; }
         .variant-group.active { display: block; }
         
@@ -17,15 +17,76 @@
         
         textarea { width: 100%; height: 180px; margin: 10px 0; padding: 15px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; resize: vertical; }
         
-        .controls { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-        
-        button { padding: 10px 15px; font-size: 14px; cursor: pointer; border-radius: 5px; border: 1px solid #ddd; background: white; color: #333; transition: 0.2s; }
-        button:hover { background: #f0f0f0; }
-        button.active { background: #007bff !important; color: white; border-color: #0056b3; }
-        
+        /* --- ВЫПАДАЮЩИЙ СПИСОК ЯЗЫКОВ --- */
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .dropbtn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            min-width: 200px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropbtn:hover { background-color: #0056b3; }
+        .dropbtn:after { content: '\25BE'; padding-left: 10px; } /* Стрелочка вниз */
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 100;
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .dropdown-content button:hover { background-color: #f1f1f1; }
+        .show { display: block; }
+
         /* Стили для кнопок вариантов в сайдбаре */
-        .variant-btn { width: 100%; text-align: left; margin-bottom: 5px; background: #f8f9fa; }
-        .variant-btn.active { background: #28a745 !important; }
+        .variant-btn { 
+            width: 100%; 
+            text-align: left; 
+            padding: 10px 15px; 
+            margin-bottom: 5px; 
+            font-size: 14px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            border: 1px solid #ddd; 
+            background: #f8f9fa; 
+            color: #333; 
+            transition: 0.2s; 
+        }
+        .variant-btn:hover { background: #e2e6ea; }
+        .variant-btn.active { background: #28a745 !important; color: white; border-color: #1e7e34; }
 
         h2 { color: #333; margin-top: 0; }
     </style>
@@ -33,58 +94,66 @@
 <body>
 
 <div class="sidebar">
-    <h3>Вариант</h3>
+    <h3>Вариант транслитерации</h3>
     <div id="variants-ru" class="variant-group active">
         <button class="variant-btn active" onclick="setVariant('ru')">РусЛат</button>
         <button class="variant-btn" onclick="setVariant('ru2')">ГОСТ 7.79 A (ISO 9)</button>
-		<button class="variant-btn" onclick="setVariant('ru3')">ГОСТ 7.79 Б (ISO 9)</button>
-		<button class="variant-btn" onclick="setVariant('ru4')">ALA-LC</button>
-		<button class="variant-btn" onclick="setVariant('ru5')">BGN/PCGN</button>
-		<button class="variant-btn" onclick="setVariant('ru6')">ICAO (Машиносчитаемые документы)</button>
-		<button class="variant-btn" onclick="setVariant('ruyak1')">Яковлев (Без диакритики)</button>
-		<button class="variant-btn" onclick="setVariant('ruyak2')">Яковлев (Типографский)</button>
-		<button class="variant-btn" onclick="setVariant('ruyak3')">Яковлев (Яналиф)</button>
-		<button class="variant-btn" onclick="setVariant('rusov')">Ларин</button>
-		<button class="variant-btn" onclick="setVariant('rubel')">Белинский</button>
-		<button class="variant-btn" onclick="setVariant('rukod')">Кодинский</button>
+        <button class="variant-btn" onclick="setVariant('ru3')">ГОСТ 7.79 Б (ISO 9)</button>
+        <button class="variant-btn" onclick="setVariant('ru4')">ALA-LC</button>
+        <button class="variant-btn" onclick="setVariant('ru5')">BGN/PCGN</button>
+        <button class="variant-btn" onclick="setVariant('ru6')">ICAO (Машиносчитаемые документы)</button>
+        <button class="variant-btn" onclick="setVariant('ruyak1')">Яковлев (Без диакритики)</button>
+        <button class="variant-btn" onclick="setVariant('ruyak2')">Яковлев (Типографский)</button>
+        <button class="variant-btn" onclick="setVariant('ruyak3')">Яковлев (Яналиф)</button>
+        <button class="variant-btn" onclick="setVariant('rusov')">Ларин</button>
+        <button class="variant-btn" onclick="setVariant('rubel')">Белинский</button>
+        <button class="variant-btn" onclick="setVariant('rukod')">Кодинский</button>
     </div>
     <div id="variants-ua" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('ua')">Иречек</button>
-		<button class="variant-btn active" onclick="setVariant('ua2')">Абэцадло (Лозинский)</button>
-		<button class="variant-btn active" onclick="setVariant('ua3')">ALA-LC</button>
-		<button class="variant-btn active" onclick="setVariant('ua4')">Научный</button>
-		<button class="variant-btn active" onclick="setVariant('ua5')">BGN/PCGN</button>
+        <button class="variant-btn" onclick="setVariant('ua2')">Абэцадло (Лозинский)</button>
+        <button class="variant-btn" onclick="setVariant('ua3')">ALA-LC</button>
+        <button class="variant-btn" onclick="setVariant('ua4')">Научный</button>
+        <button class="variant-btn" onclick="setVariant('ua5')">BGN/PCGN</button>
     </div>
     <div id="variants-by" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('by')">Латинка</button>
-		<button class="variant-btn active" onclick="setVariant('bypol')">Польский алфавит</button>
-		<button class="variant-btn active" onclick="setVariant('by2')">ALA-LC</button>
-		<button class="variant-btn active" onclick="setVariant('by3')">ISO 9</button>
-		<button class="variant-btn active" onclick="setVariant('by4')">BGN/PCGN</button>
+        <button class="variant-btn" onclick="setVariant('bypol')">Польский алфавит</button>
+        <button class="variant-btn" onclick="setVariant('by2')">ALA-LC</button>
+        <button class="variant-btn" onclick="setVariant('by3')">ISO 9</button>
+        <button class="variant-btn" onclick="setVariant('by4')">BGN/PCGN</button>
     </div>
     <div id="variants-bu" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('bu')">Научный</button>
-		<button class="variant-btn active" onclick="setVariant('bu2')">ISO 9</button>
-		<button class="variant-btn active" onclick="setVariant('bu3')">ALA/LC</button>
-		<button class="variant-btn active" onclick="setVariant('bu5')">Оффициальный, ООН; BGN/PCGN</button>
-		<button class="variant-btn active" onclick="setVariant('bu4')">Данчев</button>
+        <button class="variant-btn" onclick="setVariant('bu2')">ISO 9</button>
+        <button class="variant-btn" onclick="setVariant('bu3')">ALA/LC</button>
+        <button class="variant-btn" onclick="setVariant('bu5')">ООН; BGN/PCGN</button>
+        <button class="variant-btn" onclick="setVariant('bu4')">Данчев</button>
     </div>
     <div id="variants-mac" class="variant-group">
-        <button class="variant-btn active" onclick="setVariant('mac')">ALA-LC, BGN/PCGN, Национальная академия</button>
-		<button class="variant-btn active" onclick="setVariant('mac3')">ISO 9</button>
-		<button class="variant-btn active" onclick="setVariant('mac2')">Гаевица</button>
+        <button class="variant-btn active" onclick="setVariant('mac')">ALA-LC, BGN/PCGN, Национальная Академия</button>
+        <button class="variant-btn" onclick="setVariant('mac3')">ISO 9</button>
+        <button class="variant-btn" onclick="setVariant('mac2')">Гаевица</button>
+    </div>
+	<div id="variants-bash" class="variant-group">
+		<button class="variant-btn active" onclick="setVariant('bash')">Пантюркский алфавит</button>
+        <button class="variant-btn active" onclick="setVariant('bashyan')">Яналиф</button>
     </div>
 </div>
 
 <div class="main-content">
     <h2>Латинизатор текста</h2>
 
-    <div class="controls">
-        <button id="btn-ru" class="active" onclick="setLang('ru')">Русский</button>
-        <button id="btn-ua" onclick="setLang('ua')">Українська</button>
-        <button id="btn-by" onclick="setLang('by')">Беларуская</button>
-        <button id="btn-bu" onclick="setLang('bu')">Български</button>
-        <button id="btn-mac" onclick="setLang('mac')">Македонски</button>
+    <div class="language-dropdown">
+        <button id="current-lang-btn" onclick="toggleDropdown()" class="dropbtn">Русский</button>
+        <div id="myDropdown" class="dropdown-content">
+            <button onclick="setLang('ru')">Русский</button>
+            <button onclick="setLang('ua')">Українська</button>
+            <button onclick="setLang('by')">Беларуская</button>
+            <button onclick="setLang('bu')">Български</button>
+            <button onclick="setLang('mac')">Македонски</button>
+			<button onclick="setLang('bash')">Башҡорт</button>
+        </div>
     </div>
 
     <textarea id="input" placeholder="Сюда текст на кириллице..."></textarea>
@@ -1478,24 +1547,156 @@
 			"й": "j", "ј": "ǰ"                                                          //ээээ 
 			
 	
+        },
+		
+		bash: {
+			
+			
+			"ҙ": "ź",
+			"ҫ": "ś",
+			"ң": "ñ",
+			"һ": "h",
+			"ғ": "ğ",
+			"ҡ": "q",
+
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "s",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "x",
+			"ш": "ş",
+			"ч": "tş",
+			"ж": "j", 
+			"щ": "ş",
+			
+            "я": "ya", "e": "e", "ю": "yu", "ё": "yo",
+			"а": "a", "э": "e", "и": "i", "о": "o", "у": "u",
+			"ә": "ə", "ы": "ı", "ө": "ö", "ү": "ü",
+			
+			"й": "y", "ь": "’", "ъ": "",
+			
+			"Ау": "Aw", "ау": "aw",
+			"Еү": "Ew", "еү": "ew",
+			"Иү": "Iw", "иү": "iw",
+			"Оу": "Ow", "оу": "ow",
+			"Уу": "Uw", "уу": "uw",
+			"Ыу": "Iw", "ыу": "ıw",
+			"Өү": "Öw", "өү": "öw",
+			"Үү": "Üw", "үү": "üw",
+			"Әү": "Әw", "әү": "әw"
+			
+	
+        },
+		
+		bashyan: {
+			
+			
+			"ҙ": "đ",
+			"ҫ": "ƀ",
+			"ң": "ꞑ",
+			"һ": "h",
+			"ғ": "ƣ",
+			"ҡ": "q",
+
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "ts",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "x",
+			"ш": "ş",
+			"ч": "c",
+			"ж": "ƶ", 
+			"щ": "şc",
+			"Дж": "Ç", "дж": "ç",
+			
+            "я": "ja", "e": "e", "ю": "ju", "ё": "jo",
+			"а": "a", "э": "e", "и": "i", "о": "o", "у": "u",
+			"ә": "ә", "ы": "♭", "ө": "ө", "ү": "y",
+			
+			"Ау": "Av", "ау": "av",
+			"Еү": "Ev", "еү": "ev",
+			"Иү": "Iv", "иү": "iv",
+			"Оу": "Ov", "оу": "ov",
+			"Уу": "Uv", "уу": "uv",
+			"Ыу": "♭v", "ыу": "♭v",
+			"Өү": "Өv", "өү": "өv",
+			"Үү": "Yv", "үү": "yv",
+			"Әү": "Әv", "әү": "әv",
+			
+			"й": "j", "ь": "’", "ъ": ""
+			
+	
         }
     };
 
     let currentLang = 'ru';
     let currentVariant = 'ru';
 
+    // Словарь названий для кнопки
+    const langNames = {
+        'ru': 'Русский',
+        'ua': 'Українська',
+        'by': 'Беларуская',
+        'bu': 'Български',
+        'mac': 'Македонски',
+		'bash': 'Башҡорт'
+    };
+
+    // Функция для открытия/закрытия меню
+    function toggleDropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Закрыть меню, если кликнули в другое место
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
     function setLang(lang) {
         currentLang = lang;
-        // 1. Активируем кнопку языка
-        document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
-        document.getElementById('btn-' + lang).classList.add('active');
+        
+        // 1. Обновляем текст на кнопке
+        document.getElementById('current-lang-btn').innerText = langNames[lang];
+        
+        // 2. Закрываем меню (если открыто)
+        document.getElementById("myDropdown").classList.remove("show");
 
-        // 2. Показываем нужную группу вариантов в сайдбаре
+        // 3. Показываем нужную группу вариантов в сайдбаре
         document.querySelectorAll('.variant-group').forEach(g => g.classList.remove('active'));
         const group = document.getElementById('variants-' + lang);
         group.classList.add('active');
 
-        // 3. Устанавливаем вариант по умолчанию для этого языка
+        // 4. Устанавливаем вариант по умолчанию для этого языка
         const firstVariant = group.querySelector('button').getAttribute('onclick').match(/'([^']+)'/)[1];
         setVariant(firstVariant);
     }
@@ -1525,6 +1726,9 @@
         let result = text;
 
         const currentRules = rules[currentVariant] || rules[currentLang];
+        // Проверка на случай пустых правил
+        if (!currentRules) return;
+
         const sortedKeys = Object.keys(currentRules).sort((a, b) => b.length - a.length);
 
         for (let key of sortedKeys) {
