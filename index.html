@@ -168,7 +168,7 @@
         <button class="variant-btn" onclick="setVariant('bu4')">Данчев</button>
     </div>
 	<div id="variants-srh" class="variant-group">
-		<button class="variant-btn active" onclick="setVariant('srh')">Вуковица</button>
+		<button class="variant-btn active" onclick="setVariant('srh')">Гаевица</button>
 	</div>
     <div id="variants-mac" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('mac')">ALA-LC, BGN/PCGN, Национальная Академия</button>
@@ -185,6 +185,10 @@
 	<div id="variants-alt" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('alt')">Общий тюркский алфавит</button>
 		<button class="variant-btn" onclick="setVariant('altya')">Яналиф</button>
+    </div>
+	<div id="variants-chu" class="variant-group">
+		<button class="variant-btn active" onclick="setVariant('chu')">Научный</button>
+		<button class="variant-btn" onclick="setVariant('chu2')">ЧувЛат</button>
     </div>
 	<div id="variants-udm" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('udm')">Научный</button>
@@ -235,6 +239,7 @@
                     <button onclick="setLang('bash')">Башҡорт</button>
                     <button onclick="setLang('yak')">Сахалыы</button>
 					<button onclick="setLang('alt')">Алтай</button>
+					<button onclick="setLang('chu')">Чӑвашла</button>
                 </div>
             </div>
 
@@ -1898,6 +1903,74 @@
 
 			"й" : "j", "ъ" : "", "ь" : ""
 		},
+		chu: {
+		
+			"ҫ" : "ś", "ҫе" : "śe", "Ҫе" : "Śe",
+
+			"б" : "b", "бе" : "be", "Бе" : "Be",
+			"в" : "v", "ве" : "ve", "Ве" : "Ve",
+			"г" : "g", "ге" : "ge", "Ге" : "Ge",
+			"ж" : "ž", "же" : "že", "Же" : "Že",
+			"ш" : "š", "ше" : "še", "Ше" : "Še",
+			"к" : "k", "ке" : "ke", "Ке" : "Ke",
+			"м" : "m", "ме" : "me", "Ме" : "Me",
+			"п" : "p", "пе" : "pe", "Пе" : "Pe",
+			"р" : "r", "ре" : "re", "Ре" : "Re",
+			"ф" : "f", "фе" : "fe", "Фе" : "Fe",
+			"х" : "h", "хе" : "he", "Хе" : "He",
+			"ц" : "ts", "це" : "tse", "Це" : "Tse",
+			"щ" : "šč", "ще" : "šče", "Ще" : "Šče", 
+			"д" : "d", "де" : "de", "Де" : "De",
+			"з" : "z", "зе" : "ze", "Зе" : "Ze",
+			"с" : "s", "се" : "se", "Се" : "Se",
+			"ҥ" : "ñ", "ҥе" : "ñe", "Ҥе" : "Ñe",
+			"н" : "n", "не" : "ne", "Не" : "Ne",
+			"л" : "l", "ле" : "le", "Ле" : "Le",
+			"т" : "t", "те" : "te", "Те" : "Te",
+			"ч" : "č", "че" : "če", "Че" : "Če",
+
+
+			"а" : "a", "э" : "e", "и" : "i", "ӱ" : "ü", "ӳ" : "ü", "ү" : "ü", "о" : "o", "у" : "u", "ы" : "y", "ӧ" : "ö",
+			"ӑ" : "ă", "ӗ" : "ӗ",
+
+			"я" : "ja", "е" : "je", "ё" : "jo", "ю" : "ju",
+
+			"й" : "j", "ъ" : "", "ь" : "ʹ"
+		},
+		chu2: {
+		
+			"ҫ" : "ş", "ҫе" : "şe", "Ҫе" : "Şe",
+
+			"б" : "p", "бе" : "pe", "Бе" : "Pe",
+			"в" : "v", "ве" : "ve", "Ве" : "Ve",
+			"г" : "k", "ге" : "ke", "Ге" : "Ke",
+			"ж" : "š", "же" : "še", "Же" : "Še",
+			"ш" : "š", "ше" : "še", "Ше" : "Še",
+			"к" : "k", "ке" : "ke", "Ке" : "Ke",
+			"м" : "m", "ме" : "me", "Ме" : "Me",
+			"п" : "p", "пе" : "pe", "Пе" : "Pe",
+			"р" : "r", "ре" : "re", "Ре" : "Re",
+			"ф" : "f", "фе" : "fe", "Фе" : "Fe",
+			"х" : "h", "хе" : "he", "Хе" : "He",
+			"ц" : "zz", "це" : "zze", "Це" : "Zze",
+			"щ" : "ş", "ще" : "şe", "Ще" : "Şe", 
+			"д" : "t", "tе" : "de", "Де" : "Te",
+			"з" : "s", "зе" : "se", "Зе" : "Se",
+			"с" : "s", "се" : "se", "Се" : "Se",
+			"ҥ" : "ñ", "ҥе" : "ñe", "Ҥе" : "Ñe",
+			"н" : "n", "не" : "ne", "Не" : "Ne",
+			"л" : "l", "ле" : "le", "Ле" : "Le",
+			"т" : "t", "те" : "te", "Те" : "Te",
+			"ч" : "c", "че" : "ce", "Че" : "Ce",
+
+
+			"а" : "a", "э" : "e", "и" : "i", "ӱ" : "ü", "ӳ" : "ü", "ү" : "ü", "о" : "o", "у" : "u", "ы" : "y", "ӧ" : "ö",
+			"ӑ" : "ă", "ӗ" : "ӗ",
+
+			"я" : "ja", "е" : "je", "ё" : "jo", "ю" : "ju",
+
+			"й" : "j", "ъ" : "", "ь" : "'"
+		},
 		udm: {
 			
 			"б" : "b", "бе" : "be", "Бе" : "Be",
@@ -2189,6 +2262,7 @@
 		'bash': 'Башҡорт',
 		'yak': 'Сахалыы',
 		'alt': 'Алтай',
+		'chu': 'Чӑвашла',
 		'abk': 'Аԥсшәа',
 		'oss': 'Ирон',
 		'udm': 'Удмурт',
