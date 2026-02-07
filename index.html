@@ -204,13 +204,17 @@
 	<div id="variants-abk" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('abk')">Научный</button>
 	</div>
+	<div id="variants-ady" class="variant-group">
+		<button class="variant-btn active" onclick="setVariant('ady')">TITUS</button>
+		<button class="variant-btn"  onclick="setVariant('ady2')">BGN/PCGN</button>
+	</div>
 	<div id="variants-oss" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('oss')">Абаев</button>
 		<button class="variant-btn" onclick="setVariant('osssov')">Советский</button>
 		<button class="variant-btn" onclick="setVariant('oss2')">BGN/PCGN</button>
     </div>
 	<div id="variants-che" class="variant-group">
-		<button class="variant-btn active" onclick="setVariant('che')">BGN/PCGN, 1992</button>
+		<button class="variant-btn active" onclick="setVariant('che')">BGN/PCGN</button>
 	</div>
 </div>
 
@@ -231,39 +235,40 @@
                 <div class="group-label">Славянские</div>
                 <div class="group-buttons">
                     <button onclick="setLang('ru')">Русский</button>
-                    <button onclick="setLang('ua')">Українська</button>
-                    <button onclick="setLang('by')">Беларуская</button>
-                    <button onclick="setLang('bu')">Български</button>
-                    <button onclick="setLang('srh')">Српскохрватски</button>
-                    <button onclick="setLang('mac')">Македонски</button>
+                    <button onclick="setLang('ua')">Украинский</button>
+                    <button onclick="setLang('by')">Белорусский</button>
+                    <button onclick="setLang('bu')">Болгарский</button>
+                    <button onclick="setLang('srh')">Сербохорватский</button>
+                    <button onclick="setLang('mac')">Македонский</button>
                 </div>
             </div>
 
             <div class="lang-group-row">
                 <div class="group-label">Тюркские</div>
                 <div class="group-buttons">
-                    <button onclick="setLang('bash')">Башҡорт</button>
-                    <button onclick="setLang('yak')">Сахалыы</button>
-					<button onclick="setLang('alt')">Алтай</button>
-					<button onclick="setLang('chu')">Чӑвашла</button>
+                    <button onclick="setLang('bash')">Башкирский</button>
+                    <button onclick="setLang('yak')">Якутский</button>
+					<button onclick="setLang('alt')">Алтайский</button>
+					<button onclick="setLang('chu')">Чувашский</button>
                 </div>
             </div>
 
             <div class="lang-group-row">
                 <div class="group-label">Финно-<br>угорские</div>
                 <div class="group-buttons">
-                    <button onclick="setLang('udm')">Удмурт</button>
+                    <button onclick="setLang('udm')">Удмуртский</button>
                     <button onclick="setLang('komi')">Коми</button>
-                    <button onclick="setLang('mari')">Марий</button>
+                    <button onclick="setLang('mari')">Марийский</button>
                 </div>
             </div>
 
             <div class="lang-group-row">
                 <div class="group-label">Кавказские</div>
                 <div class="group-buttons">
-                    <button onclick="setLang('abk')">Аԥсшәа</button>
-                    <button onclick="setLang('oss')">Ирон</button>
-					<button onclick="setLang('che')">Нохчийн </button>
+                    <button onclick="setLang('abk')">Абхазский</button>
+                    <button onclick="setLang('oss')">Осетинский</button>
+					<button onclick="setLang('che')">Чеченский</button>
+					<button onclick="setLang('ady')">Адыгейский </button>
                 </div>
             </div>
 
@@ -2443,6 +2448,170 @@
 			"я" : "ya", "яь" : "yä", "Яь" : "Yä", "е" : "ye", "ё" : "yo", "ю" : "yu", "юь" : "yü", "Юь" : "Yü",
 
 			"й" : "y", "ъ" : "’", "ь" : "", "Ӏ" : "j", "ӏ" : "j", "1" : "j"
+		},
+		ady2: {
+			"а" : "a",
+			"б" : "b",
+			"в" : "v",
+			"г"  : "g",
+			"гу" : "gw", "Гу" : "Gw",
+			"гъ" : "gh", "Гъ" : "Gh",
+			"гъу" : "ghw", "Гъу" : "Ghw",
+			"д" : "d",
+			"дж" : "j", "Дж" : "J",
+			"дзу" : "dzw", "Дзу" : "Dzw",
+			"ж" : "zh",
+			"жь" : "ź", "Жь" : "Ź",
+			"жъ" : "z͟h", "Жъ" : "Z͟h",
+			"жъу" : "z͟hw", "Жъу" : "Z͟hw",
+			"з" : "z", 
+			"к" : "k",
+			"ку" : "kw", "Ку" : "Kw",
+			"к1у" : "kw’", "К1у" : "Kw’", 
+			"кӀу" : "kw’", "КӀу" : "Kw’", 
+			"кӏу" : "kw’", "Кӏу" : "Kw’", 
+			"къ" : "q’", "Къ" : "Q’",
+			"къу" : "qw’", "Къу" : "Qw’",
+			"л" : "l",
+			"лъ" : "lh", "Лъ" : "Lh",
+			"м" : "m",
+			"н" : "n",
+			"п" : "p",
+			"п1у" : "pw’", "П1у" : "Pw’", 
+			"пӀу" : "pw’", "ПӀу" : "Pw’", 
+			"пӏу" : "pw’", "Пӏу" : "Pw’",
+			"р" : "r",
+			"с" : "s",
+			"т" : "t",
+			"т1у" : "tw’", "Т1у" : "Tw’", 
+			"тӀу" : "tw’", "ТӀу" : "Tw’", 
+			"тӏу" : "tw’", "Тӏу" : "Tw’",
+			"ф" : "f",
+			"х" : "kh", 
+			"ху" : "khw", "Ху" : "Khw",
+			"хъ" : "x", "Хъ" : "X",
+			"хъу" : "xw", "Хъу" : "Xw",
+			"хь" : "ẖ", "Хь" : "H̱",
+			"ц" : "ts",
+			"цу" : "tsw", "Цу" : "Tsw",
+			"ч" : "ch",
+			"чъ" : "č", "Чъ" : "Č",
+			"ш" : "sh",
+			"ш1у" : "shw’", "Ш1у" : "Shw’", 
+			"шӀу" : "shw’", "ШӀу" : "Shw’", 
+			"шӏу" : "shw’", "Шӏу" : "Shw’",
+			"шъ" : "s͟h", "Шъ" : "S͟h",
+			"шъу" : "s͟hw", "Шъу" : "S͟hw",
+			"щ" : "ś",
+
+			"1" : "’", "Ӏ" : "’", "ӏ" : "’",
+			"1у" : "’w", "Ӏу" : "’w", "ӏу" : "’w",
+
+			"е" : "e",
+			"ё" : "ë",
+			"и" : "i",
+			"й" : "y",
+			"о" : "o",
+			"у" : "u",
+			"ъ" : "’’",
+			"ы" : "y",
+			"ь" : "’",
+			"э" : "ä",
+			"ю" : "yu",
+			"я" : "ya"
+		},
+		ady: {
+			"а" : "ā",
+			"б" : "b",
+			"в" : "v",
+			"г"  : "ɣ",
+			"гу" : "g°", "Гу" : "G°",
+			"гъ" : "ġ", "Гъ" : "Ġ",
+			"гъу" : "ġ°", "Гъу" : "Ġ°",
+			"д" : "d",
+			"дж" : "ǯ′", "Дж" : "Ǯ′",
+			"дз" : "ʒ", "Дз" : "Ʒ",
+			"дзу" : "ʒ°", "Дзу" : "Ʒ°",
+			"ж" : "ž",
+			"жь" : "ž′", "Жь" : "Ž′",
+			"жъ" : "ẑ", "Жъ" : "Ẑ",
+			"жъу" : "ẑ°", "Жъу" : "Ẑ°",
+			"з" : "z", 
+			"к" : "k",
+			"ку" : "k°", "Ку" : "K°",
+			"к1" : "č̣′", "К1" : "Č̣′", 
+			"кӀ" : "č̣′", "КӀ" : "Č̣′", 
+			"кӏ" : "č̣′", "Кӏ" : "Č̣′", 
+			"к1у" : "ḳ°", "К1у" : "Ḳ°", 
+			"кӀу" : "ḳ°", "КӀу" : "Ḳ°", 
+			"кӏу" : "ḳ°", "Кӏу" : "Ḳ°", 
+			"къ" : "q", "Къ" : "Q",
+			"къу" : "q°", "Къу" : "Q°",
+			"л" : "l",
+			"лъ" : "ł", "Лъ" : "Ł",
+			"л1" : "ḷ", "Л1" : "Ḷ", 
+			"лӀ" : "ḷ", "ЛӀ" : "Ḷ", 
+			"лӏ" : "ḷ", "Лӏ" : "Ḷ", 
+			"м" : "m",
+			"н" : "n",
+			"п" : "p",
+			"п1" : "ṗ", "П1" : "Ṗ", 
+			"пӀ" : "ṗ", "ПӀ" : "Ṗ", 
+			"пӏ" : "ṗ", "Пӏ" : "Ṗ",
+			"п1у" : "ṗ°", "П1у" : "Ṗ°", 
+			"пӀу" : "ṗ°", "ПӀу" : "Ṗ°", 
+			"пӏу" : "ṗ°", "Пӏу" : "Ṗ°",
+			"р" : "r",
+			"с" : "s",
+			"т" : "t",
+			"т1" : "ṭ", "Т1" : "Ṭ", 
+			"тӀ" : "ṭ", "ТӀ" : "Ṭ", 
+			"тӏ" : "ṭ", "Тӏ" : "Ṭ",
+			"т1у" : "ṭ°’", "Т1у" : "Ṭ°", 
+			"тӀу" : "ṭ°’", "ТӀу" : "Ṭ°", 
+			"тӏу" : "ṭ°’", "Тӏу" : "Ṭ°",
+			"ф" : "f",
+			"х" : "x", 
+			"ху" : "x°", "Ху" : "X°",
+			"хъ" : "ꭓ", "Хъ" : "Ꭓ",
+			"хъу" : "ꭓ°", "Хъу" : "Ꭓ°",
+			"хь" : "ḥ", "Хь" : "Ḥ",
+			"ц" : "c",
+			"ц1" : "c̣", "Ц1" : "C̣", 
+			"цӀ" : "c̣", "ЦӀ" : "C̣", 
+			"цӏ" : "c̣", "Цӏ" : "C̣",
+			"цу" : "c°", "Цу" : "C°",
+			"ч" : "čʹ",
+			"чъ" : "č", "Чъ" : "Č",
+			"ч1" : "č̣", "Ч1" : "Č̣", 
+			"чӀ" : "č̣", "ЧӀ" : "Č̣", 
+			"чӏ" : "č̣", "Чӏ" : "Č̣",
+			"ш" : "š",
+			"ш1" : "ṣ̂", "Ш1" : "Ṣ̂", 
+			"шӀ" : "ṣ̂", "ШӀ" : "Ṣ̂", 
+			"шӏ" : "ṣ̂", "Шӏ" : "Ṣ̂",
+			"ш1у" : "ṣ̂°", "Ш1у" : "Ṣ̂°", 
+			"шӀу" : "ṣ̂°", "ШӀу" : "Ṣ̂°", 
+			"шӏу" : "ṣ̂°", "Шӏу" : "Ṣ̂°",
+			"шъ" : "ŝ", "Шъ" : "Ŝ",
+			"шъу" : "ŝ°", "Шъу" : "Ŝ°",
+			"щ" : "šʹ",
+
+			"1" : "ʾ", "Ӏ" : "ʾ", "ӏ" : "ʾ",
+			"1у" : "ʾ°", "Ӏу" : "ʾ°", "ӏу" : "ʾ°",
+
+			"е" : "e",
+			"ё" : "e",
+			"и" : "i",
+			"й" : "j",
+			"о" : "o",
+			"у" : "w",
+			"ъ" : "’’",
+			"ы" : "ǝ",
+			"ь" : "ʹ",
+			"э" : "ă",
+			"ю" : "jw",
+			"я" : "jā"
 		}
     };
 
@@ -2452,21 +2621,22 @@
     // Словарь названий для кнопки
     const langNames = {
         'ru': 'Русский',
-        'ua': 'Українська',
-        'by': 'Беларуская',
-        'bu': 'Български',
-		'srh': 'Српскохрватски',
-        'mac': 'Македонски',
-		'bash': 'Башҡорт',
-		'yak': 'Сахалыы',
-		'alt': 'Алтай',
-		'chu': 'Чӑвашла',
-		'abk': 'Аԥсшәа',
-		'che': 'Нохчийн',
-		'oss': 'Ирон',
-		'udm': 'Удмурт',
+        'ua': 'Украинский',
+        'by': 'Белорусский',
+        'bu': 'Болгарский',
+		'srh': 'Сербохорватский',
+        'mac': 'Македонский',
+		'bash': 'Башкирский',
+		'yak': 'Якутский',
+		'alt': 'Алтайский',
+		'chu': 'Чувашский',
+		'abk': 'Абхазский',
+		'che': 'Чеченский',
+		'oss': 'Осетинский',
+		'ady': 'Адыгейский',
+		'udm': 'Удмуртский',
 		'komi': 'Коми',
-		'mari': 'Марий'
+		'mari': 'Марийский'
     };
 
     // Функция для открытия/закрытия меню
