@@ -157,12 +157,12 @@
         <button class="variant-btn active" onclick="setVariant('by')">Латинка</button>
         <button class="variant-btn" onclick="setVariant('bypol')">Польский алфавит</button>
         <button class="variant-btn" onclick="setVariant('by2')">ALA-LC</button>
-        <button class="variant-btn" onclick="setVariant('by3')">ISO 9</button>
+        <button class="variant-btn" onclick="setVariant('by3')">ГОСТ 7.79 A (ISO 9)</button>
         <button class="variant-btn" onclick="setVariant('by4')">BGN/PCGN</button>
     </div>
     <div id="variants-bu" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('bu')">Научный</button>
-        <button class="variant-btn" onclick="setVariant('bu2')">ISO 9</button>
+        <button class="variant-btn" onclick="setVariant('bu2')">ГОСТ 7.79 A (ISO 9)</button>
         <button class="variant-btn" onclick="setVariant('bu3')">ALA/LC</button>
         <button class="variant-btn" onclick="setVariant('bu5')">ООН; BGN/PCGN</button>
         <button class="variant-btn" onclick="setVariant('bu4')">Данчев</button>
@@ -172,7 +172,7 @@
 	</div>
     <div id="variants-mac" class="variant-group">
         <button class="variant-btn active" onclick="setVariant('mac')">ALA-LC, BGN/PCGN, Национальная Академия</button>
-        <button class="variant-btn" onclick="setVariant('mac3')">ISO 9</button>
+        <button class="variant-btn" onclick="setVariant('mac3')">ГОСТ 7.79 A (ISO 9)</button>
         <button class="variant-btn" onclick="setVariant('mac2')">Гаевица</button>
     </div>
 	<div id="variants-bash" class="variant-group">
@@ -208,6 +208,11 @@
 	<div id="variants-komi" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('komi')">Научный</button>
     </div>
+	<div id="variants-kyr" class="variant-group">
+		<button class="variant-btn active" onclick="setVariant('kyr')">BGN/PCGN</button>
+		<button class="variant-btn" onclick="setVariant('kyr2')">ГОСТ 7.79 (ISO 9)</button>
+		<button class="variant-btn" onclick="setVariant('kyr3')">ALA-LC</button>
+	</div>
 	<div id="variants-mari" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('mari')">Научный</button>
     </div>
@@ -264,6 +269,7 @@
                 <div class="group-label">Тюркские</div>
                 <div class="group-buttons">
 					<button onclick="setLang('qaz')">Казахский</button>
+					<button onclick="setLang('kyr')">Киргизский</button>
                     <button onclick="setLang('bash')">Башкирский</button>
                     <button onclick="setLang('yak')">Якутский</button>
 					<button onclick="setLang('alt')">Алтайский</button>
@@ -1317,7 +1323,7 @@
 			"ш": "š", 															      //Ш
 			"ч": "č",															      //ч
 			"ж": "ž", 															       //ж
-			"щ": "shch",  											                    //щ
+			"щ": "ŝ",  											                    //щ
 		
             "я": "â", "е": "e", "'і": "i", "ё": "ë", "ю": "û",                   //йотированные
 			"а": "a", "э": "è", "о": "o", "у": "u", "ы": "y",							  //обычные
@@ -2988,6 +2994,96 @@
 			"ь": "ʹ", "ъ": "ʺ",
 			"й": "j"
 			
+		},
+		kyr: {
+            "а": "a", "э": "e", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "ya", "е": "e", "ё": "yo", "ю": "yu", "ү": "ü", "ә": "ä", "ө": "ö",
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"ғ": "gh",
+			"д": "d",
+            "л": "l",
+			"ц": "ts",
+			"з": "z",
+			"к": "k",
+			"қ": "q",
+			"м": "m",
+			"н": "n",
+			"ң": "ng",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "kh",
+			"ш": "sh", 															
+			"ч": "ch",															    
+			"ж": "j",
+			"щ": "shch",
+			"ь": "ʹ", "ъ": "ʺ",
+			"й": "y"
+			
+		},
+		kyr2: {
+            "а": "a", "э": "è", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "â", "е": "e", "ё": "yo", "ю": "û", "ү": "ù", "ә": "ä", "ө": "ö",
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "c",
+			"з": "z",
+			"к": "k",
+			"қ": "q",
+			"м": "m",
+			"н": "n",
+			"ң": "n̦",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "h",
+			"ш": "š", 															
+			"ч": "č",															    
+			"ж": "ž",
+			"щ": "ŝ",
+			"ь": "ʹ", "ъ": "ʺ",
+			"й": "j"
+			
+		},
+		kyr3: {
+            "а": "a", "э": "ė", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "i͡a", "е": "e", "ё": "ë", "ю": "i͡u", "ү": "u̇", "ө": "ȯ",
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "t͡s",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"ң": "n͡g",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "kh",
+			"ш": "sh", 															
+			"ч": "ch",															    
+			"ж": "zh",
+			"щ": "shch",
+			"ь": "ʹ", "ъ": "ʺ",
+			"й": "ĭ"
+			
 		}
     };
 
@@ -3015,7 +3111,8 @@
 		'mari': 'Марийский',
 		'mon': 'Монгольский',
 		'kal': 'Калмыцкий',
-		'qaz': 'Казахский'
+		'qaz': 'Казахский',
+		'kyr': 'Киргизский'
     };
 
     // Функция для открытия/закрытия меню
