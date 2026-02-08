@@ -216,6 +216,13 @@
 	<div id="variants-che" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('che')">BGN/PCGN</button>
 	</div>
+	<div id="variants-mon" class="variant-group">
+		<button class="variant-btn active" onclick="setVariant('mon')">BGN/PCGN</button>
+	</div>
+	<div id="variants-kal" class="variant-group">
+		<button class="variant-btn active" onclick="setVariant('kal')">ГОСТ 7.79</button>
+		<button class="variant-btn" onclick="setVariant('kal2')">Яналиф</button>
+	</div>
 </div>
 
 
@@ -269,6 +276,14 @@
                     <button onclick="setLang('oss')">Осетинский</button>
 					<button onclick="setLang('che')">Чеченский</button>
 					<button onclick="setLang('ady')">Адыгейский </button>
+                </div>
+            </div>
+			
+			<div class="lang-group-row">
+                <div class="group-label">Монго<br>льские</div>
+                <div class="group-buttons">
+                    <button onclick="setLang('mon')">Монгольский</button>
+					<button onclick="setLang('kal')">Калмыцкий</button>
                 </div>
             </div>
 
@@ -2612,6 +2627,100 @@
 			"э" : "ă",
 			"ю" : "jw",
 			"я" : "jā"
+		},
+		mon: {
+			
+			"а" : "a", "я" : "ya", 
+			"е" : "yö", "э" : "e", 
+			"и" : "i",
+			"о" : "o", "ё" : "yo",
+			"у" : "u", "ю" : "yu", "ү" : "ü", "ө" : "ö",
+			"ы" : "ϊ",
+			
+			"б" : "b",
+			"в" : "v",
+			"г" : "g",
+			"д" : "d",
+			"ж" : "j",
+			"з" : "dz",
+			"к" : "k",
+			"л" : "l",
+			"м" : "m",
+			"н" : "n",
+			"п" : "p",
+			"р" : "r",
+			"с" : "s",
+			"т" : "t",
+			"ф" : "f",
+			"х" : "h",
+			"ц" : "ts",
+			"ч" : "ch",
+			"ш" : "sh",
+			"щ" : "shch",
+			
+			"ь" : "ĭ", "ъ" : "’", "й" : "y"
+		},
+		kal: {
+            "а": "a", "э": "è", "и": "i", "о": "o", "у": "u", "ы": "y",
+			"я": "â", "е": "e", "ё": "ë", "ю": "û", "ү": "ù", "ә": "a̋", "ө": "ô",
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"һ": "ḥ",
+			"д": "d",
+            "л": "l",
+			"ц": "c",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"ң": "ñ",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "h",
+			"ш": "s̆", 															
+			"ч": "č",															    
+			"ж": "ž",
+			"җ": "z̦̆",
+			"щ": "ŝ",
+			"ь": "'", "ъ": "",
+			"й": "j"
+			
+		},
+		kal2: {
+            "а": "a", "э": "e", "и": "i", "о": "o", "у": "u", "ы": "ƅ",
+			"я": "ja", "е": "e", "ё": "jo", "ю": "ju", "ү": "y", "ә": "ə", "ө": "ɵ",
+			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"һ": "h",
+			"д": "d",
+            "л": "l",
+			"ц": "c",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"ң": "ꞑ",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "x",
+			"ш": "ş", 															
+			"ч": "ç",															    
+			"ж": "ƶ",
+			"җ": "ƶ",
+			"щ": "ş",
+			"ь": "ƅ", "ъ": "",
+			"й": "j"
+			
 		}
     };
 
@@ -2636,7 +2745,9 @@
 		'ady': 'Адыгейский',
 		'udm': 'Удмуртский',
 		'komi': 'Коми',
-		'mari': 'Марийский'
+		'mari': 'Марийский',
+		'mon': 'Монгольский',
+		'kal': 'Калмыцкий'
     };
 
     // Функция для открытия/закрытия меню
