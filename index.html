@@ -331,6 +331,7 @@
     </div>
 	<div id="variants-udm" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('udm')">Научный</button>
+		<button class="variant-btn" onclick="setVariant('udm2')">BGN/PCGN</button>
     </div>
 	<div id="variants-komi" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('komi')">Научный</button>
@@ -355,6 +356,7 @@
 	</div>
 	<div id="variants-ady" class="variant-group">
 		<button class="variant-btn active" onclick="setVariant('ady')">TITUS</button>
+		<button class="variant-btn"  onclick="setVariant('adysov')">Яковлев (1927-1938)</button>
 		<button class="variant-btn"  onclick="setVariant('ady2')">BGN/PCGN</button>
 	</div>
 	<div id="variants-oss" class="variant-group">
@@ -462,88 +464,52 @@
 <script>
     const rules = {
         ru: {
+		
+			"([бвгдлцзкмнпрстфх])я": "$1ia",
+			"([шщчжй])я": "$1a",
+			
+			"([бвгдлцзкмнпрстфх])ё": "$1io",
+			"([шщчжй])ё": "$1o",
+			
+			"([бвгдлцзкмнпрстфх])ю": "$1iu",
+			"([шщчжй])ю": "$1u",
+			
+			"([бвгдлцзкмнпрстфхшщчжй])е": "$1e",
+			
+			
 		    "ья": "ja", "ье": "je", "ьи": "ji", "ьё": "jo", "ью": "ju",     //ьjV - ja
 			"ьа": "ja", "ьэ": "je", "ьы": "jy", "ьо": "jo", "ьу": "ju",     //ьV - ja
 			
-			"б": "b", "бя": "bia", "бе": "be", "бё": "bio", "бю": "biu",                //б
-			"Бя": "Bia", "Бе": "Be", "Бё": "Bio", "Бю": "Biu",
-			"в": "v", "вя": "via", "ве": "ve", "вё": "vio", "вю": "viu",                //в
-			"Вя": "Via", "Ве": "Ve", "Вё": "Vio", "Вю": "Viu",
-			"г": "g", "гя": "gia", "ге": "ge", "гё": "gio", "гю": "giu",                //г
-			"Гя": "Gia", "Ге": "Ge", "Гё": "Gio", "Гю": "Giu",
-			"д": "d", "дя": "dia", "де": "de", "дё": "dio", "дю": "diu",                //д
-			"Дя": "Dia", "Де": "De", "Дё": "Dio", "Дю": "Diu",
-            "л": "l", "ля": "lia", "ле": "le", "лё": "lio", "лю": "liu",                //л
-			"Ля": "Lia", "Ле": "Le", "Лё": "Lio", "Лю": "Liu",
-			"ц": "c", "ця": "cia", "це": "ce", "цё": "cio", "цю": "ciu",                //ц
-			"Ця": "Cia", "Це": "Ce", "Цё": "Cio", "Цю": "Ciu",
-			
-			"з": "z", "зя": "zia", "зе": "ze", "зё": "zio", "зю": "ziu",                //з
-			"Зя": "Zia", "Зе": "Ze", "Зё": "Zio", "Зю": "Ziu",
-
-			"к": "k", "кя": "kia", "ке": "ke", "кё": "kio", "кю": "kiu",                //к
-			"Кя": "Kia", "Ке": "Ke", "Кё": "Kio", "Кю": "Kiu",
-
-			"м": "m", "мя": "mia", "ме": "me", "мё": "mio", "мю": "miu",                //м
-			"Мя": "Mia", "Ме": "Me", "Мё": "Mio", "Мю": "Miu",
-
-			"н": "n", "ня": "nia", "не": "ne", "нё": "nio", "ню": "niu",                //н
-			"Ня": "Nia", "Не": "Ne", "Нё": "Nio", "Ню": "Niu",
-
-			"п": "p", "пя": "pia", "пе": "pe", "пё": "pio", "пю": "piu",                //п
-			"Пя": "Pia", "Пе": "Pe", "Пё": "Pio", "Пю": "Piu",
-
-			"р": "r", "ря": "ria", "ре": "re", "рё": "rio", "рю": "riu",                //р
-			"Ря": "Ria", "Ре": "Re", "Рё": "Rio", "Рю": "Riu",
-
-			"с": "s", "ся": "sia", "се": "se", "сё": "sio", "сю": "siu",                //с
-			"Ся": "Sia", "Се": "Se", "Сё": "Sio", "Сю": "Siu",
-
-			"т": "t", "тя": "tia", "те": "te", "тё": "tio", "тю": "tiu",                //т
-			"Тя": "Tia", "Те": "Te", "Тё": "Tio", "Тю": "Tiu",
-
-			"ф": "f", "фя": "fia", "фе": "fe", "фё": "fio", "фю": "fiu",                //ф
-			"Фя": "Fia", "Фе": "Fe", "Фё": "Fio", "Фю": "Fiu",
-
-			"х": "h", "хя": "hia", "хе": "he", "хё": "hio", "хю": "hiu",                //х
-			"Хя": "Hia", "Хе": "He", "Хё": "Hio", "Хю": "Hiu",
-
-			
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"д": "d",
+            "л": "l",
+			"ц": "c",
+			"з": "z",
+			"к": "k",
+			"м": "m",
+			"н": "n",
+			"п": "p",
+			"р": "r",
+			"с": "s",
+			"т": "t",
+			"ф": "f",
+			"х": "h",
 			"ш": "š", "шь": "š",   											           //Ш
-			"шя": "ša", "ше": "še", "шё": "šo", "шю": "šu",       				       //ШjV
-			"Шя": "Ša", "Ше": "Še", "Шё": "Šo", "Шю": "Šu",       				                            //но чЯ - chYA, как и 
-			"шья": "šja", "шье": "šje", "шьи": "šji", "шьё": "šjo", "шью": "šju",      //ШьV
-			
 			"ч": "č", "чь": "č",   											           //ч
-			"чя": "ča", "че": "če", "чё": "čo", "чю": "ču",       				       //чjV
-			"Чя": "Ča", "Че": "Če", "Чё": "Čo", "Чю": "Ču",       				       
-			"чья": "čja", "чье": "čje", "чьи": "čji", "чьё": "čjo", "чью": "čju",      //чьV
-			
 			"ж": "ž", "жь": "ž",   											           //ж
-			"жя": "ža", "же": "že", "жё": "žo", "жю": "žu",       				       //жjV
-			"Жя": "Ža", "Же": "Že", "Жё": "Žo", "Жю": "Žu",       				       
-			"жья": "žja", "жье": "žje", "жьи": "žji", "жьё": "žjo", "жью": "žju",      //жьV
-			
 			"щ": "šč", "щь": "šč",   											       //щ
-			"щя": "šča", "ще": "šče", "щё": "ščo", "щю": "šču",       				   //щjV
-			"Щя": "Šča", "Ще": "Šče", "Щё": "Ščo", "Щю": "Šču",       				       
-			"щья": "ščja", "щье": "ščje", "щьи": "ščji", "щьё": "ščjo", "щью": "ščju", //щьV
-			
 			"сч": "šč", "счь": "šč",   											       //щ
-			"счя": "šča", "сче": "šče", "счё": "ščo", "счю": "šču",       				   //щjV
-			"Счя": "Šča", "Сче": "Šče", "Счё": "Ščo", "Счю": "Šču",       				       
-			"Счья": "ščja", "Счье": "ščje", "Счьи": "ščji", "Счьё": "ščjo", "Счью": "ščju", //щьV
-		
+			"й": "j",
+
             "я": "ja", "е": "je", "ё": "jo", "ю": "ju",                                           //йотированные
 			"а": "a", "э": "e", "и": "i", "о": "o", "у": "u", "ы": "y",							  //обычные
-			"ъ": "", "ь": "j", "й": "j",                                                       //ээээ 
+			"ъ": "", "ь": "j",                                                   //ээээ 
 			
 			"ѣ": "ě", "ꙓ": "jě", "ѧ": "ę", "ѩ": "ję", "ѫ": "ǫ", "ѭ": "jǫ", "ѯ": "ks", 
 			"ѱ": "ps", "ѳ": "th", "ѵ": "ÿ", "ѷ": "u", "ꙁ": "z", "ꙃ": "dz", "ꙇ": "i",
 			"ꙗ": "ja", "ѹ": "u", "ꙋ": "u", "ѡ": "ō", "ѿ": "ōt", "ꙑ": "y", "є": "e", "і": "i"
-			
-			
-			
 			
         },
 		
@@ -1443,11 +1409,6 @@
         },
 		by3: {
 		
-		
-		
-		
-		
-			
 			"б": "b", 
 			"в": "v", 
 			"г": "g", 
@@ -1474,83 +1435,42 @@
 			"а": "a", "э": "è", "о": "o", "у": "u", "ы": "y",							  //обычные
 			"'": "ʼ", "ь": "ʹ", "й": "j", "ў": "ǔ", "’": "ʼ"                                        //ээээ 
 			
-			
-			
-			
-			
-			
-			
-			
         },
 		bypol: {
-		
-		
 			
-			"б": "b", "бя": "bia", "бе": "bie", "бё": "bio", "бю": "biu",                //б
-			"Бя": "Bia", "Бе": "Bie", "Бё": "Bio", "Бю": "Biu",
-			"в": "w", "вя": "wia", "ве": "wie", "вё": "wio", "вю": "wiu",                //в
-			"Вя": "Wia", "Ве": "Wie", "Вё": "Wio", "Вю": "Wiu",
-			"г": "h", "гя": "hia", "ге": "hie", "гё": "hio", "гю": "hiu",                //г
-			"Гя": "Hia", "Ге": "Hie", "Гё": "Hio", "Гю": "Hiu",
-			"ґ": "g", "ґя": "gia", "ґе": "gie", "ґё": "gio", "ґю": "giu",                //г
-			"Ґя": "Gia", "Ґе": "Gie", "Ґё": "Gio", "Ґю": "Giu",
-			"д": "d", "дя": "dia", "де": "die", "дё": "dio", "дю": "diu",                //д
-			"Дя": "Dia", "Де": "Die", "Дё": "Dio", "Дю": "Diu",
-            "л": "ł", "ль": "l", "лі": "li", "лi": "li", "ля": "la", "ле": "le", "лё": "lo", "лю": "lu",    //л
-			"Ль": "L", "Лі": "Li", "Лi": "Li", "Ля": "La", "Ле": "Le", "Лё": "Lo", "Лю": "Lu",
-			"ц": "c", "ць": "ć", "ця": "cia", "це": "cie", "цё": "cio", "цю": "ciu",     //ц
-			"Ць": "Ć", "Ця": "Cia", "Це": "Cie", "Цё": "Cio", "Цю": "Ciu",
+			"([цзкмнпсфхбвгґд])я": "$1ia",
+			"([цзкмнпсфхбвгґ])е": "$1ie",
+			"([цзкмнпсфхбвгґ])ё": "$1io",
+			"([цзкмнпсфхбвгґ])ю": "$1iu",
+
+			"л": "ł", "ль": "l", "лі": "li", "лi": "li", "ля": "la", "ле": "le", "лё": "lo", "лю": "lu",
+
+			"д": "d",
+			"т": "t",
+			"б": "b",
+			"в": "w",
+			"г": "h",
+			"ґ": "g",
+			"ц": "c", "ць": "ć",
+			"з": "z", "зь": "ź",
+			"к": "k",
+			"м": "m",
+			"н": "n", "нь": "ń",
+			"п": "p",
+			"р": "r",
+			"с": "s", "сь": "ś",
+			"ф": "f",
+			"х": "ch",
 			
-			"з": "z", "зь": "ź", "зя": "zia", "зе": "zie", "зё": "zio", "зю": "ziu",     //з
-			"Зь": "Ź", "Зя": "Zia", "Зе": "Zie", "Зё": "Zio", "Зю": "Ziu",
-
-			"к": "k", "кя": "kia", "ке": "kie", "кё": "kio", "кю": "kiu",                //к
-			"Кя": "Kia", "Ке": "Kie", "Кё": "Kio", "Кю": "Kiu",
-
-			"м": "m", "мя": "mia", "ме": "mie", "мё": "mio", "мю": "miu",                //м
-			"Мя": "Mia", "Ме": "Mie", "Мё": "Mio", "Мю": "Miu",
-
-			"н": "n", "нь": "ń", "ня": "nia", "не": "nie", "нё": "nio", "ню": "niu",    //н
-			"Нь": "Ń", "Ня": "Nia", "Не": "Nie", "Нё": "Nio", "Ню": "Niu",
-
-			"п": "p", "пя": "pia", "пе": "pie", "пё": "pio", "пю": "piu",                //п
-			"Пя": "Pia", "Пе": "Pie", "Пё": "Pio", "Пю": "Piu",
-
-			"р": "r", "ря": "ria", "ре": "rie", "рё": "rio", "рю": "riu",                //р
-			"Ря": "Ria", "Ре": "Rie", "Рё": "Rio", "Рю": "Riu",
-
-			"с": "s", "сь": "ś", "ся": "sia", "се": "sie", "сё": "sio", "сю": "siu",                //с
-			"Сь": "Ś", "Ся": "Sia", "Се": "Sie", "Сё": "Sio", "Сю": "Siu",
-
-			"т": "t", "тя": "tia", "те": "tie", "тё": "tio", "тю": "tiu",                //т
-			"Тя": "Tia", "Те": "Tie", "Тё": "Tio", "Тю": "Tiu",
-
-			"ф": "f", "фя": "fia", "фе": "fie", "фё": "fio", "фю": "fiu",                //ф
-			"Фя": "Fia", "Фе": "Fie", "Фё": "Fio", "Фю": "Fiu",
-
-			"х": "ch", "хя": "chia", "хе": "chie", "хё": "chio", "хю": "chiu",          //х
-			"Хя": "Chia", "Хе": "Chie", "Хё": "Chio", "Хю": "Chiu",
-
-			
-			"ш": "sz", 															      //Ш
-			
-			"ч": "cz",															      //ч
-			
-			"ж": "ż", 															       //ж
-			
-			"щ": "szcz",  											                    //щ
+			"ш": "sz",
+			"ч": "cz",
+			"ж": "ż",
+			"щ": "szcz",
 		
             "я": "ja", "е": "je", "'і": "ji", "’і": "ji", "ё": "jo", "ю": "ju",                   //йотированные
 			"а": "a", "э": "e", "і": "i", "о": "o", "у": "u", "ы": "y",							  //обычные
 			"'": "", "ь": "j", "й": "j", "ў": "ŭ", "’": ""                                        //ээээ 
-			
-			
-			
-			
-			
-			
-			
-			
+
         },
 		
 		by4: {
@@ -2410,6 +2330,50 @@
 			"й" : "j", "ъ" : "", "ь" : ""
 
         },
+		
+		udm2: {
+			
+			"б" : "b", "бе" : "be", "Бе" : "Be",
+			"в" : "v", "ве" : "ve", "Ве" : "Ve",
+			"г" : "g", "ге" : "ge", "Ге" : "Ge",
+			"ж" : "zh", "же" : "zhe", "Же" : "Zhe",
+			"ш" : "sh", "ше" : "she", "Ше" : "She",
+			"ӝ" : "dzh", "ӝе" : "dzhe", "Ӝе" : "Dzhe",
+			"к" : "k", "ке" : "ke", "Ке" : "Ke",
+			"м" : "m", "ме" : "me", "Ме" : "Me",
+			"п" : "p", "пе" : "pe", "Пе" : "Pe",
+			"р" : "r", "ре" : "re", "Ре" : "Re",
+			"ф" : "f", "фе" : "fe", "Фе" : "Fe",
+			"х" : "kh", "хе" : "khe", "Хе" : "Khe",
+			"ц" : "ts", "це" : "tse", "Це" : "Tse",
+			"щ" : "shch", "ще" : "shche", "Ще" : "Shche",  
+
+			"д" : "d",
+
+			"з" : "z",
+
+			"с" : "s",
+
+			
+
+			"л" : "l",
+
+			"н" : "n",
+
+			"т" : "t",
+
+			"ч" : "ch", "че" : "che", "Че" : "Che",
+			"ӟ" : "j", "ӟе" : "je", "Ӟе" : "Je",
+			"ӵ" : "tsh", "ӵе" : "tshe", "Ӵе" : "Tshe",
+
+
+			"а" : "a", "э" : "e", "ӥ" : "ï", "и" : "i", "о" : "o", "у" : "u", "ы" : "y", "ӧ" : "ö",
+
+			"я" : "ya", "е" : "ye", "ё" : "yo", "ю" : "yu",
+
+			"й" : "y", "ъ" : "”", "ь" : "’"
+
+        },
 		komi: {
 			
 			"б" : "b", "бе" : "be", "Бе" : "Be",
@@ -2902,6 +2866,132 @@
 			"ю" : "jw",
 			"я" : "jā"
 		},
+		adysov: {
+		
+			"а" : "ᴀ",
+			"б" : "ʙ",
+			"в" : "w",
+			"г"  : "g",
+			"гу" : "gv", "Гу" : "gv",
+			"гъ" : "ᴦ", "Гъ" : "ᴦ",
+			"гъу" : "ᴦv", "Гъу" : "ᴦv",
+			"д" : "d",
+			"дж" : "ǥ", "Дж" : "ǥ",
+			"дз" : "ᴣ", "Дз" : "ᴣ",
+			"дзу" : "ᴣv", "Дзу" : "ᴣv",
+			"ж" : "ᴊ",
+			"жь" : "ɩ", "Жь" : "ɩ",
+			"жъ" : "ⱬ", "Жъ" : "ⱬ",
+			"жъу" : "ⱬv", "Жъу" : "ⱬv",
+			"з" : "z", 
+			"к" : "k",
+			"ку" : "kv", "Ку" : "kv",
+			
+			"к1" : "ⱪ",
+			"кӀ" : "ⱪ",
+			"кӏ" : "ⱪ",
+			"кІ" : "ⱪ",
+			"к1у" : "ⱪv",
+			"кӀу" : "ⱪv",
+			"кӏу" : "ⱪv",
+			"кІу" : "ⱪv",
+			
+			"къ" : "q", "Къ" : "q",
+			"къу" : "qv", "Къу" : "qv",
+			"л" : "l",
+			"лъ" : "ʟ", "Лъ" : "ʟ",
+			
+			"л1" : "ᶅ", "Л1" : "ᶅ", 
+			"лӀ" : "ᶅ", "ЛӀ" : "ᶅ", 
+			"лӏ" : "ᶅ", "Лӏ" : "ᶅ", 
+			"лІ" : "ᶅ", "ЛІ" : "ᶅ", 
+			
+			"м" : "m",
+			"н" : "n",
+			"п" : "p",
+			
+			"п1" : "ꝓ", "П1" : "ꝓ", 
+			"пӀ" : "ꝓ", "ПӀ" : "XXX", 
+			"пӏ" : "ꝓ", "Пӏ" : "ꝓ",
+			"пІ" : "ꝓ", "ПІ" : "ꝓ",
+			"п1у" : "ꝓv", "П1у" : "ꝓv", 
+			"пӀу" : "ꝓv", "ПӀу" : "ꝓv", 
+			"пӏу" : "ꝓv", "Пӏу" : "ꝓv",
+			"пІу" : "ꝓv", "ПІу" : "ꝓv",
+			
+			"р" : "r",
+			"с" : "s",
+			"т" : "t",
+			
+			"т1" : "ƀ", "Т1" : "ƀ", 
+			"тӀ" : "ƀ", "ТӀ" : "ƀ", 
+			"тӏ" : "ƀ", "Тӏ" : "ƀ",
+			"тІ" : "ƀ", "ТІ" : "ƀ",
+			"т1у" : "ƀv", "Т1у" : "ƀv", 
+			"тӀу" : "ƀv", "ТӀу" : "ƀv", 
+			"тӏу" : "ƀv", "Тӏу" : "ƀv",
+			"тІу" : "ƀv", "ТІу" : "ƀv",
+			
+			"ф" : "f",
+			"ф1" : "ɟ", "Ф1" : "ɟ", 
+			"фӀ" : "ɟ", "ФӀ" : "ɟ", 
+			"фӏ" : "ɟ", "Фӏ" : "ɟ",
+			"фІ" : "ɟ", "ФІ" : "ɟ",
+			
+			"х" : "x", 
+			"ху" : "xv", "Ху" : "xv",
+			"хъ" : "ꭖ", "Хъ" : "ꭖ",
+			"хъу" : "ꭖv", "Хъу" : "ꭖv",
+			"хь" : "ɦ", "Хь" : "ɦ",
+			"ц" : "c",
+			
+			"ц1" : "ç", "Ц1" : "ç", 
+			"цӀ" : "ç", "ЦӀ" : "ç", 
+			"цӏ" : "ç", "Цӏ" : "ç",
+			"цІ" : "ç", "ЦІ" : "ç",
+			
+			"цу" : "cv", "Цу" : "cv",
+			"ч" : "ꝁ",
+			"чъ" : "đ", "Чъ" : "đ",
+			
+			"ч1" : "ɖ", "Ч1" : "ɖ", 
+			"чӀ" : "ɖ", "ЧӀ" : "ɖ", 
+			"чӏ" : "ɖ", "Чӏ" : "ɖ",
+			"чІ" : "ɖ", "ЧІ" : "ɖ",
+			
+			"ш" : "ħ",
+			
+			"ш1" : "ꞕ", "Ш1" : "ꞕ", 
+			"шӀ" : "ꞕ", "ШӀ" : "ꞕ", 
+			"шӏ" : "ꞕ", "Шӏ" : "ꞕ",
+			"шІ" : "ꞕ", "ШІ" : "ꞕ",
+			"ш1у" : "ꞕv", "Ш1у" : "ꞕv", 
+			"шӀу" : "ꞕv", "ШӀу" : "ꞕv", 
+			"шӏу" : "ꞕv", "Шӏу" : "ꞕv",
+			"шІу" : "ꞕv", "ШІу" : "ꞕv",
+			
+			"шъ" : "š", "Шъ" : "š",
+			"шъу" : "šv", "Шъу" : "šv",
+			"щ" : "ʃ",
+
+
+			"1" : "h", "Ӏ" : "h", "ӏ" : "h", "І" : "h",
+			"1у" : "hv", "Ӏу" : "hv", "ӏу" : "hv", "Іу" : "hv",
+			
+
+			"е" : "e",
+			"ё" : "yo",
+			"и" : "i",
+			"й" : "y",
+			"о" : "o",
+			"у" : "u",
+			"ъ" : "",
+			"ы" : "ə",
+			"ь" : "",
+			"э" : "e",
+			"ю" : "yu",
+			"я" : "ya"
+		},
 		mon: {
 			
 			"а" : "a", "я" : "ya", 
@@ -3038,7 +3128,7 @@
 			"ғ": "ǵ",
 			"д": "d",
             "л": "l",
-			"ц": "s", "сц": "s", "Сц": "S", "цц": "s", "Цц": "S",
+			"ц": "s", "сц": "s", "цц": "s",
 			"з": "z",
 			"к": "k",
 			"қ": "q",
@@ -3405,47 +3495,51 @@
 		},
 		erz: {
 
-			"д": "d", "дя": "ďa", "де": "ďe", "ди": "ďi", "дё": "ďo", "дю": "ďu", "дь": "ď", 
-			"Дя": "Ďa", "Де": "Ďe", "Ди": "Ďi", "Дё": "Ďo", "Дю": "Ďu", "Дь": "Ď", 
+			"(?:д)(?=[яеиёюь])": "ď",
+			"(?:л)(?=[яеиёюь])": "ľ",
+			"(?:ц)(?=[яеиёюь])": "ć",
+			"(?:з)(?=[яеиёюь])": "ź",
+			"(?:н)(?=[яеиёюь])": "ń",
+			"(?:р)(?=[яеиёюь])": "ŕ",
+			"(?:с)(?=[яеиёюь])": "ś",
+			"(?:т)(?=[яеиёюь])": "ť",
 			
-			"л": "l", "ля": "ľa", "ле": "ľe", "ли": "ľi", "лё": "ľo", "лю": "ľu", "ль": "ľ", 
-			"Ля": "Ľa", "Ле": "Ľe", "Ли": "Ľi", "Лё": "Ľo", "Лю": "Ľu", "Ль": "Ľ", 
-
-			"ц": "c", "ця": "ća", "це": "će", "ци": "ći", "цё": "ćo", "цю": "ću", "ць": "ć", 
-			"Ця": "Ća", "Це": "Će", "Ци": "Ći", "Цё": "Ćo", "Цю": "Ću", "Ць": "Ć", 
-
-			"з": "z", "зя": "źa", "зе": "źe", "зи": "źi", "зё": "źo", "зю": "źu", "зь": "ź", 
-			"Зя": "Źa", "Зе": "Źe", "Зи": "Źi", "Зё": "Źo", "Зю": "Źu", "Зь": "Ź", 
-
-			"н": "n", "ня": "ńa", "не": "ńe", "ни": "ńi", "нё": "ńo", "ню": "ńu", "нь": "ń", 
-			"Ня": "Ńa", "Не": "Ńe", "Ни": "Ńi", "Нё": "Ńo", "Ню": "Ńu", "Нь": "Ń", 
-
-			"р": "r", "ря": "ŕa", "ре": "ŕe", "ри": "ŕi", "рё": "ŕo", "рю": "ŕu", "рь": "ŕ", 
-			"Ря": "Ŕa", "Ре": "Ŕe", "Ри": "Ŕi", "Рё": "Ŕo", "Рю": "Ŕu", "Рь": "Ŕ", 
-
-			"с": "s", "ся": "śa", "се": "śe", "си": "śi", "сё": "śo", "сю": "śu", "сь": "ś", 
-			"Ся": "Śa", "Се": "Śe", "Си": "Śi", "Сё": "Śo", "Сю": "Śu", "Сь": "Ś", 
-
-			"т": "t", "тя": "ťa", "те": "ťe", "ти": "ťi", "тё": "ťo", "тю": "ťu", "ть": "ť", 
-			"Тя": "Ťa", "Те": "Ťe", "Ти": "Ťi", "Тё": "Ťo", "Тю": "Ťu", "Ть": "Ť", 
-
-			"п": "p", "пе": "pe", "Пе": "Pe",
-			"б": "b", "бе": "be", "Бе": "Be",
-			"в": "v", "ве": "ve", "Ве": "Ve",
-			"г": "g", "ге": "ge", "Ге": "Ge",
-			"к": "k", "ке": "ke", "Ке": "Ke",
-			"м": "m", "ме": "me", "Ме": "Me",
-			"ф": "f", "фе": "fe", "Фе": "Fe",
-			"х": "h", "хе": "he", "Хе": "He",
+			"([ďľćźńŕśťй])я": "$1a",
+			"([ďľćźńŕśť])е": "$1e",
+			"([ďľćźńŕśť])и": "$1i",
+			"([ďľćźńŕśťй])ё": "$1o",
+			"([ďľćźńŕśťй])ю": "$1u",
 			
-			"ш": "š", "ше": "še", "Ше": "Še",
-			"ч": "č", "че": "če", "Че": "Če",	
-			"ж": "ž", "же": "že", "Же": "Že",
-			"щ": "šč", "ще": "šče", "Ще": "Šče",
+			"([йпбвгкмфхшчжщ])е": "$1e",
+			"([йпбвгкмфхшчжщ])и": "$1i",
 			
-            "я": "ja", "е": "je", "и": "ji", "ё": "jo", "ю": "ju",                   //йотированные
-			"а": "a", "э": "e", "и": "i", "о": "o", "у": "u", "ы": "i",							  //обычные
-			"й": "j", "ь": ""                      
+			
+			"д": "d", 
+			"л": "l", 
+			"ц": "c", 
+			"з": "z", 
+			"н": "n", 
+			"р": "r", 
+			"с": "s", 
+			"т": "t", 
+
+			"п": "p",
+			"б": "b",
+			"в": "v",
+			"г": "g",
+			"к": "k",
+			"м": "m",
+			"ф": "f",
+			"х": "h",
+			"ш": "š",
+			"ч": "č",
+			"ж": "ž",
+			"щ": "šč",
+			"й": "j", 
+			
+            "я": "ja", "е": "je", "и": "ji", "ё": "jo", "ю": "ju",
+			"а": "a", "э": "e", "о": "o", "у": "u", "ы": "i",
+			"ь": ""                      
 
         }
     };
@@ -3501,84 +3595,116 @@
 
     function setLang(lang) {
         currentLang = lang;
-        
-        // 1. Обновляем текст на кнопке
         document.getElementById('current-lang-btn').innerText = langNames[lang];
-        
-        // 2. Закрываем меню (если открыто)
         document.getElementById("myDropdown").classList.remove("show");
-
-        // 3. Показываем нужную группу вариантов в сайдбаре
         document.querySelectorAll('.variant-group').forEach(g => g.classList.remove('active'));
         const group = document.getElementById('variants-' + lang);
         group.classList.add('active');
-
-        // 4. Устанавливаем вариант по умолчанию для этого языка
         const firstVariant = group.querySelector('button').getAttribute('onclick').match(/'([^']+)'/)[1];
         setVariant(firstVariant);
     }
 
     function setVariant(variant) {
         currentVariant = variant;
-        // Подсвечиваем активный вариант в сайдбаре
         document.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
-        // Ищем кнопку по тексту или аттрибуту (упростим поиск)
-        const allVariantBtns = document.querySelectorAll('.variant-btn');
-        allVariantBtns.forEach(btn => {
+        document.querySelectorAll('.variant-btn').forEach(btn => {
             if (btn.getAttribute('onclick').includes(`'${variant}'`)) {
                 btn.classList.add('active');
             }
         });
-
         latinize();
     }
 
-    function capitalizeFirst(str) {
-        if (!str) return "";
-        return str.charAt(0).toUpperCase() + str.slice(1);
+    // --- Вспомогательные функции проверки символов (Unicode) ---
+    function isLetter(ch) { return ch ? /\p{L}/u.test(ch) : false; }
+    function isUpper(ch) { return ch ? /\p{Lu}/u.test(ch) : false; }
+
+    function escapeRegExp(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
-    function latinize() {
-        let text = document.getElementById('input').value;
-        let result = text;
+    // --- Функция Капитализации ---
+    function applyCapitalization(replacement, match, prevChar, nextChar) {
+        if (!match || !replacement) return replacement;
 
-        const currentRules = rules[currentVariant] || rules[currentLang];
-        // Проверка на случай пустых правил
-        if (!currentRules) return;
-
-        const sortedKeys = Object.keys(currentRules).sort((a, b) => b.length - a.length);
-
-        for (let key of sortedKeys) {
-            let regLower = new RegExp(key, 'g');
-            result = result.replace(regLower, currentRules[key]);
-
-            let regUpper = new RegExp(key.toUpperCase(), 'g');
-            result = result.replace(regUpper, capitalizeFirst(currentRules[key]));
+        if (!isUpper(match[0])) {
+            return replacement;
         }
 
-        document.getElementById('output').value = result;
+        const len = match.length;
+        const charAfterFirst = len > 1 ? match[1] : nextChar;
+
+        const hasPrevLetter = isLetter(prevChar);
+        const hasNextUpper = isUpper(charAfterFirst);
+
+        if (hasPrevLetter || hasNextUpper) {
+            return replacement.toUpperCase();
+        } else {
+            return replacement.charAt(0).toUpperCase() + replacement.slice(1).toLowerCase();
+        }
     }
-	
-	// Clears both the input and output textareas
+
+    // --- Выполнение замены для конкретного правила ---
+    function replaceRule(text, patternStr, replacement) {
+        // Проверяем, содержит ли ключ спецсимволы регулярного выражения
+        const isRegex = /[()[\]{}*+?^$|\\.]/.test(patternStr);
+        const regexPattern = isRegex ? patternStr : escapeRegExp(patternStr);
+        const regex = new RegExp(regexPattern, 'gi');
+
+        return text.replace(regex, (match, ...args) => {
+            const offset = args[args.length - 2];
+            const fullText = args[args.length - 1];
+
+            let res = replacement;
+            if (isRegex) {
+                // Раскрываем ссылки на подмаски ($1, $2...)
+                res = replacement.replace(/\$(\d+)/g, (_, groupIndex) => {
+                    const captured = args[groupIndex - 1];
+                    return captured !== undefined ? captured : '';
+                });
+            }
+
+            const len = match.length;
+            const prevChar = offset > 0 ? fullText[offset - 1] : "";
+            const nextChar = offset + len < fullText.length ? fullText[offset + len] : "";
+
+            return applyCapitalization(res, match, prevChar, nextChar);
+        });
+    }
+
+    // --- Главная функция транслитерации ---
+    function latinize() {
+        let text = document.getElementById('input').value;
+        if (!text) {
+            document.getElementById('output').value = '';
+            return;
+        }
+
+        const activeRules = rules[currentVariant] || rules[currentLang];
+        if (!activeRules) return;
+
+        // Сортируем правила по длине ключа (более длинные шаблоны и регулярки выполняются раньше)
+        const keys = Object.keys(activeRules).sort((a, b) => b.length - a.length);
+
+        for (let key of keys) {
+            const replacement = activeRules[key];
+            text = replaceRule(text, key, replacement);
+        }
+
+        document.getElementById('output').value = text;
+    }
+
     function clearText() {
         document.getElementById('input').value = '';
         document.getElementById('output').value = '';
     }
-	
-    // Copies the generated text from the output textarea
+
     function copyText() {
         const outputText = document.getElementById('output').value;
-        
-        if (!outputText) {
-            return; // Don't do anything if there is no text
+        if (outputText) {
+            navigator.clipboard.writeText(outputText);
         }
-
-        navigator.clipboard.writeText(outputText)
     }
-	
 
     document.getElementById('input').addEventListener('input', latinize);
 </script>
-
-</body>
-</html>
